@@ -17,6 +17,9 @@ def run_chat_loop():
             if user_input.lower() in {"exit", "quit", "q"}:
                 print("Exiting chat.")
                 break
+            stream_graph_updates(user_input)
         except:
-            stream_graph_updates(user_input, "Tell goodbye!")
-            break
+            user_input = "What do you know about LangGraph?"
+            print("User: " + user_input)
+            stream_graph_updates(user_input)
+            break 

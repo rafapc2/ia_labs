@@ -18,12 +18,13 @@ def build_graph() -> StateGraph:
     """
     graph_builder = StateGraph(State)
 
-    def chatbot(state: State) -> dict:
+    def chatbot(state: State):
         message = llm_with_tools.invoke(state["messages"])
-        return {"message": [message]}
+        return {"messages": [message]}
+
     graph_builder.add_node("chatbot", chatbot)
 
-    tool_node = ToolNode(tools=tools)
+    tool_node = ToolNode(tools)
 
     graph_builder.add_node("tools", tool_node)
 
