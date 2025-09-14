@@ -1,0 +1,5 @@
+{
+    "name":"mi_ia_lab",
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+    "postCreateCommand": "pip install uv"
+}
